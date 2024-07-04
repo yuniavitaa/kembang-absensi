@@ -34,7 +34,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/jadwala">Absensi dan Presensi</a>
+                <a class="collapse-item" href="/jadwal">Absensi dan Presensi</a>
             </div>
         </div>
     </li>
