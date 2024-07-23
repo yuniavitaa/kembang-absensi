@@ -126,5 +126,19 @@ class JadwalController extends Controller
     
         return redirect()->route('jadwal.index')->with('success', 'Data jadwal berhasil dihapus');
     }
-    
+
+
+    public function downloadPDF()
+    {
+        $jadwals = Jadwal::all(); // Ambil semua data absensi dari database
+
+        // Load view yang akan digunakan untuk membuat PDF
+        $pdf = PDF::loadView('jadwala.pdf', compact('jadwals'));
+
+        // Menggunakan nama file yang unik untuk PDF
+        $pdfFileName = 'laporan_absensi_' . time() . '.pdf';
+
+        // Mengembalikan file PDF untuk diunduh
+        return $pdf->download($pdfFileName);
+    }
 }

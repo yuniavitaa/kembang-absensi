@@ -6,7 +6,7 @@
     <div class="card-body">
         <a href="/jadwal" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
             <i class="fas fa-arrow-left fa-sm text-white-50"></i> Kembali</a>
-        <form action="{{ route('jadwal.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('jadwal.store') }}" method="post" enctype="multipart/form-data" >
             @csrf
             <div class="form-group">
                 <label for="karyawan_id">Karyawan</label>
@@ -19,7 +19,7 @@
             <div class="form-group">
                 <br>
                 <label for="">Masukan Nama</label>
-                <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukkan Nama">
+                <input type="text" id="nama" name="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukkan Nama">
                 @error('nama')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -78,4 +78,29 @@
         </form>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#karyawan_id').change(function() {
+            var karyawanId = $(this).val();
+            if (karyawanId) {
+                $.ajax({
+                    url: '/get-karyawan/' + karyawanId,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if(data) {
+                            $('#nama').val(data.nama);
+                        } else {
+                            $('#nama').val('');
+                        }
+                    }
+                });
+            } else {
+                $('#nama').val('');
+            }
+        });
+    });
+</script>
 @endsection

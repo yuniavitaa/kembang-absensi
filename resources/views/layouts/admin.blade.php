@@ -22,6 +22,31 @@
     <link href="{{ asset('sbadmin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
 </head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+            <script>
+                $(document).ready(function () {
+                    
+                    $("#form-ajax").submit(function(e) {
+                        e.preventDefault();
+                        var form = $(this);
+                        var url = form.attr('action');
+                        var method = form.attr('method');
+                        var data = form.serialize();
+                        //alert('tes');
+                        $.ajax({
+                            type: method,
+                            url: url,
+                            data: data,
+                            success: function (response){
+                                alert('Data berhasil disimpan');
+                            },
+                            error: function(xhr, status, error) {
+                                alert('Data gagal disimpan');    
+                            }
+                        });
+                    });
+                });
+            </script>
 <body id="page-top">
     <div id="wrapper">
         @include('layouts.partials.sidebar')

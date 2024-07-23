@@ -98,4 +98,11 @@ class KaryawanController extends Controller
         $karyawan->delete();
         return redirect()->route('karyawan.index');
     }
+
+
+        public function getKaryawan($id)
+    {
+        $karyawan = Karyawan::find($id);
+        return response()->json($karyawan);
+    }
 }

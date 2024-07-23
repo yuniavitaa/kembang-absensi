@@ -22,6 +22,7 @@
     <link href="{{ asset('sbadmin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
 </head>
+
 <body id="page-top">
     <div id="wrapper">
         @include('layouts.partialsa.sidebar')

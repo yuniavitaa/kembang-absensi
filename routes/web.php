@@ -49,6 +49,10 @@ Route::get('/jadwala', function () {
 });
 Route::resource('/karyawan', KaryawanController::class);
 Route::get('/jadwala', [App\Http\Controllers\JadwalController::class, 'indexa']);
+
+Route::get('/get-karyawan/{id}', [KaryawanController::class, 'getKaryawan']);
+
+
 /*------------------------------------------
 --------------------------------------------
 All Admin Routes List
@@ -66,3 +70,4 @@ Route::resource('/jadwal', JadwalController::class);
 
 Route::get('/admin/jadwal', [JadwalController::class, 'indexAdmin'])->name('admin.jadwal.index');
 
+Route::get('/get-karyawan/{id}', [KaryawanController::class, 'getKaryawan']);

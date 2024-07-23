@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <a href="/karyawan" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
                         <i class="fas fa-arrow-left fa-sm text-white-50"></i> Kembali</a>
-                    <form action="{{route('karyawan.store')}}" method="post">
+                    <form action="{{route('karyawan.store')}}" method="post" id="form-ajax">
                         @csrf
                         <div class="form-group">
                                 <br>
